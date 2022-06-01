@@ -43,7 +43,7 @@ function ReviewsPage() {
   return (
     <>
       {loading && <p>...Loading</p>}
-      <ReviewsItems data={reviews} />
+      <ReviewsItems reviews={reviews} />
       {error && <p>{error}</p>}
     </>
   );

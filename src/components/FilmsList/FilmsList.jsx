@@ -40,8 +40,7 @@ function FilmsList() {
   return (
     <>
       {loading && <p>...Loading</p>}
-
-      {Boolean(movies.length) && <ListItems data={movies} />}
+      <ListItems movies={movies} />
       {error && <p>{error}</p>}
     </>
   );

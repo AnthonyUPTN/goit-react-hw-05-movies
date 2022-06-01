@@ -31,3 +31,12 @@ export const fetchMovieReviews = async id => {
   const { data } = await instance.get(`/movie/${id}/reviews`);
   return data;
 };
+
+export const fechMovieByQuery = async query => {
+  const { data } = await instance.get(`search/movie/`, {
+    params: {
+      query,
+    },
+  });
+  return data;
+};

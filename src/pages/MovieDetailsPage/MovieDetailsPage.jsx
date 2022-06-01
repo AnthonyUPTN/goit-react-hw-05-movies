@@ -1,11 +1,5 @@
 import { useState, useEffect } from 'react';
-import {
-  Link,
-  useParams,
-  useNavigate,
-  useLocation,
-  Outlet,
-} from 'react-router-dom';
+import { Link, useParams, useNavigate, Outlet } from 'react-router-dom';
 
 import { fetchMovieById } from 'shared/services/moviesAPI';
 
@@ -20,11 +14,10 @@ const MovieDetailsPage = () => {
   const { id } = useParams();
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
+  // const from = location?.state?.from || '/';
 
-  const from = location?.state?.from || '/';
-
-  const goBack = () => navigate(from);
+  const goBack = () => navigate(-1);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -78,14 +71,10 @@ const MovieDetailsPage = () => {
           </div>
           <div className={s.links}>
             <h3 className={s.info}>Aditional information</h3>
-            <Link className={s.link} state={{ from }} to={`/movies/${id}/cast`}>
+            <Link className={s.link} to={`/movies/${id}/cast`}>
               Cast
             </Link>
-            <Link
-              className={s.link}
-              state={{ from }}
-              to={`/movies/${id}/reviews`}
-            >
+            <Link className={s.link} to={`/movies/${id}/reviews`}>
               Reviews
             </Link>
           </div>

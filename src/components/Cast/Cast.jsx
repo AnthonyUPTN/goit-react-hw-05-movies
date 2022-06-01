@@ -42,7 +42,7 @@ function Cast() {
   return (
     <>
       {loading && <p>...Loading</p>}
-      <CastItems data={cast} />
+      <CastItems cast={cast} />
       {error && <p>{error}</p>}
     </>
   );
